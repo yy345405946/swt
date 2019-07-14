@@ -1,0 +1,10 @@
+.swt-wuhua .content{
+    line-height: 28px;
+    margin: 30px 200px 90px 200px;
+}
+.swt-wuhua .content .center{
+    text-align: center;
+}
+.swt-wuhua .content .font-style{
+    color: #999;
+}

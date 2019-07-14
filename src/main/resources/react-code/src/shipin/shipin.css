@@ -1,0 +1,39 @@
+.swt-shipin{
+    margin: 50px 150px 0 150px;
+    line-height: 28px;
+}
+.swt-shipin-categroy{
+    padding: 20px 0;
+    font-size: 16px;
+
+    border-bottom: 1px solid #ccc;
+}
+.swt-shipin-cname{
+    padding: 5px 14px;
+    background-color: #333;
+    color: #fff;
+}
+.swt-shipin-clabel{
+    color: #ccc;
+}
+.swt-shipin-clabel:hover{
+    color: #333;
+}
+.swt-shipin-action{
+    margin-top: 20px;
+}
+.swt-shipin-action-toggle{
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+.swt-shipin-action-toggle div{
+    display: inline-block;
+    margin: 3px 0px;
+    padding: 0 14px;
+}
+.swt-shipin-action-toggle-border{
+    border-right: 1px solid #ccc;
+}
+.swt-shipin-item{
+    margin-top: 30px;
+}
