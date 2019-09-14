@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Icon } from 'antd';
+import { Button, Modal, Form, Input, Select, Icon } from 'antd';
 
 const { TextArea } = Input;
 
@@ -33,12 +33,12 @@ class Admin extends Component{
                     </a>
                 }
                 <Modal
-                    title="活动"
+                    title="视频"
                     visible={this.state.visible}
                     onCancel={this.handleCloseModal}
                     footer={null}
                 >
-                    <AdminForm />
+                    <AdminForm isEdit={this.props.isEdit} record={this.props.record}/>
                 </Modal>
             </span>
         )
@@ -57,6 +57,8 @@ class AdminContent extends Component{
     }
 
     render(){
+        const { isEdit, record } = this.props;
+
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
             labelCol: {
@@ -77,31 +79,51 @@ class AdminContent extends Component{
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                <Form.Item {...itemLayout}>
+                <Form.Item label="课程类别">
                     {
-                        getFieldDecorator('title')(
-                            <Input placeholder="请输入活动标题"/>
-                        )
-                    }
-                </Form.Item>
-                <Form.Item label="活动说明">
-                    {
-                        getFieldDecorator('description')(
-                            <TextArea />
-                        )
-                    }
-                </Form.Item>
-                <Form.Item label="活动标签">
-                    {
-                        getFieldDecorator('type')(
+                        getFieldDecorator('assetClass', {
+                            initialValue: isEdit? record.assetClass : ''
+                        })(
                             <Input />
                         )
                     }
                 </Form.Item>
-                <Form.Item label="资源信息">
+                <Form.Item label="授课老师">
                     {
-                        getFieldDecorator('content')(
-                            <Input placeholder="请填写活动链接"/>
+                        getFieldDecorator('teacher', {
+                            initialValue: isEdit? record.teacher : ''
+                        })(
+                            <Input />
+                        )
+                    }
+                </Form.Item>
+                <Form.Item label="视频类别">
+                    {
+                        getFieldDecorator('type', {
+                            initialValue: isEdit? record.type : ''
+                        })(
+                            <Input />
+                        )
+                    }
+                </Form.Item>
+                <Form.Item label="精选">
+                    {
+                        getFieldDecorator('mark', {
+                            initialValue: isEdit? record.mark : 'Y'
+                        })(
+                            <Select>
+                                <Select.Option value="Y">是</Select.Option>
+                                <Select.Option value="N">否</Select.Option>
+                            </Select>
+                        )
+                    }
+                </Form.Item>
+                <Form.Item label="链接">
+                    {
+                        getFieldDecorator('url', {
+                            initialValue: isEdit? record.url : ''
+                        })(
+                            <Input />
                         )
                     }
                 </Form.Item>
@@ -113,6 +135,6 @@ class AdminContent extends Component{
     }
 }
 
-const AdminForm = Form.create({ name: 'swt-active-admin-form' })(AdminContent);
+const AdminForm = Form.create({ name: 'swt-shipin-admin-form' })(AdminContent);
 
 export default Admin;

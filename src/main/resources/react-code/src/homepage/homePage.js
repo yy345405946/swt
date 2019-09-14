@@ -3,32 +3,32 @@ import { Layout } from 'antd';
 import CarouselComponent from '../carousel';
 import HeaderComponent from './header';
 import MenuComponent from './menu';
-import FooterComponent from '../footer';
+import FooterComponent from '../page/footer';
 import './homepage.css';
 
 const { Header, Content, Footer } = Layout;
 
 const list = [
-    "http://192.168.0.139:8443/images/homepage/wugewu.png",
-    "http://192.168.0.139:8443/images/homepage/wukaiwu.png",
-    "http://192.168.0.139:8443/images/homepage/wuruwu.png",
-    "http://192.168.0.139:8443/images/homepage/wutiwu.png",
-    "http://192.168.0.139:8443/images/homepage/wuwowu.png",
-    "http://192.168.0.139:8443/images/homepage/wuxiangwu.png"
+    "/images/homepage/wugewu.png",
+    "/images/homepage/wukaiwu.png",
+    "/images/homepage/wuruwu.png",
+    "/images/homepage/wutiwu.png",
+    "/images/homepage/wuwowu.png",
+    "/images/homepage/wuxiangwu.png"
 ]
 
 class HomePage extends Component{
 
     render(){
         return (
-            <div style={{width: "100%", height: "100%"}}>
+            <div style={{width: "100%", height: "100%", margin: '0 auto'}}>
                 <Layout>
                     <Header style={{width: "100%", height: "20%"}}>
                         <HeaderComponent />
                     </Header>
-                    <Content style={{paddingBottom: 50}}>
+                    <Content style={{paddingBottom: 30}}>
                         <CarouselComponent list={list} />
-                        <MenuComponent />
+                        <MenuComponent onMenuClick={this.props.onMenuClick}/>
                     </Content>
                     <Footer>
                         <FooterComponent />

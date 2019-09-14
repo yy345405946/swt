@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Row, Col } from 'antd';
+import Admin from './admin';
 import './kecheng.css';
 
 const items = [
@@ -73,7 +74,7 @@ class ItemComponent extends Component{
                                 <Col span={5} style={{marginBottom: 20}}>
                                     <a onClick={this.onClickHandle.bind(this, item.index)} className="swt-kc-button">{item.label}</a>
                                 </Col>
-                            )
+                            ) 
                         })
                     }
                 </Row>

@@ -29,16 +29,16 @@ class Admin extends Component{
                     isEdit? <a href="javascript:void(0)" onClick={this.handleShowModal}>编辑</a> 
                     : <a type="primary" onClick={this.handleShowModal}>
                         <Icon type="edit" style={{fontSize: 20}} />
-                        <span>新建视频</span>
+                        <span>新建轮播</span>
                     </a>
                 }
                 <Modal
-                    title="活动"
+                    title="轮播"
                     visible={this.state.visible}
                     onCancel={this.handleCloseModal}
                     footer={null}
                 >
-                    <AdminForm />
+                    <AdminForm isEdit={this.props.isEdit} record={this.props.record}/>
                 </Modal>
             </span>
         )
@@ -57,6 +57,8 @@ class AdminContent extends Component{
     }
 
     render(){
+        const { isEdit, record } = this.props;
+
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
             labelCol: {
@@ -79,28 +81,36 @@ class AdminContent extends Component{
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                 <Form.Item {...itemLayout}>
                     {
-                        getFieldDecorator('title')(
+                        getFieldDecorator('title', {
+                            initialValue: isEdit? record.title : ''
+                        })(
                             <Input placeholder="请输入活动标题"/>
                         )
                     }
                 </Form.Item>
                 <Form.Item label="活动说明">
                     {
-                        getFieldDecorator('description')(
+                        getFieldDecorator('description', {
+                            initialValue: isEdit? record.description : ''
+                        })(
                             <TextArea />
                         )
                     }
                 </Form.Item>
                 <Form.Item label="活动标签">
                     {
-                        getFieldDecorator('type')(
+                        getFieldDecorator('type', {
+                            initialValue: isEdit? record.type : ''
+                        })(
                             <Input />
                         )
                     }
                 </Form.Item>
                 <Form.Item label="资源信息">
                     {
-                        getFieldDecorator('content')(
+                        getFieldDecorator('content', {
+                            initialValue: isEdit? record.content : ''
+                        })(
                             <Input placeholder="请填写活动链接"/>
                         )
                     }
@@ -113,6 +123,6 @@ class AdminContent extends Component{
     }
 }
 
-const AdminForm = Form.create({ name: 'swt-active-admin-form' })(AdminContent);
+const AdminForm = Form.create({ name: 'swt-carousel-admin-form' })(AdminContent);
 
 export default Admin;

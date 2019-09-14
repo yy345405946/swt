@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import Jianjie from './jianjie';
 
 const list = [
-    "http://192.168.0.139:8443/images/chakechuji/1.png",
-    "http://192.168.0.139:8443/images/chakechuji/2.png",
-    "http://192.168.0.139:8443/images/chakechuji/3.png",
+    "/images/chakechuji/1.png",
+    "/images/chakechuji/2.png",
+    "/images/chakechuji/3.png",
     "http://localhost:8443/images/chakechuji/4.png",
 ]
 

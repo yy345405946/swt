@@ -1,0 +1,13 @@
+.swt-carousel-create{
+    margin-bottom: 10px;
+    line-height: 16px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.swt-carousel-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-carousel-create a:hover span{
+    color: #1890ff;
+}

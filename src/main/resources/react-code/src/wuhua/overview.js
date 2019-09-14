@@ -4,13 +4,13 @@ import CarouselComponent from '../carousel';
 import './wuhua.css';
 
 const list = [
-    "http://localhost:8443/images/wuhua/1.png",
-    "http://localhost:8443/images/wuhua/2.png",
-    "http://localhost:8443/images/wuhua/3.png",
-    "http://localhost:8443/images/wuhua/4.png",
-    "http://localhost:8443/images/wuhua/5.png",
-    "http://localhost:8443/images/wuhua/6.png",
-    "http://localhost:8443/images/wuhua/7.png"
+    "/images/wuhua/1.png",
+    "/images/wuhua/2.png",
+    "/images/wuhua/3.png",
+    "/images/wuhua/4.png",
+    "/images/wuhua/5.png",
+    "/images/wuhua/6.png",
+    "/images/wuhua/7.png"
 ]
 
 class App extends Component{

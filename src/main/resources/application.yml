@@ -13,3 +13,7 @@ spring:
     show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 127.0.0.1:9300

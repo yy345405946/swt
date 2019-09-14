@@ -62,7 +62,7 @@
     line-height: 30px;
 }
 .menuRowHeight{
-    height: 16rem;
+    height: 12rem;
 }
 .borderStyle3{
     border-top-color: #444;
@@ -73,7 +73,7 @@
     border-left-width: 1px;
 }
 .marginRight20{
-    margin-right: 15px;
+    margin-right: 10px;
 }
 .fontStyle{
     color: #ccc;
@@ -82,4 +82,17 @@
     font-family: 华文楷体;
     font-size: 15px;
     color: #444;
+}
+.ant-layout-content .ant-carousel{
+  width: 88%;
+  margin: 0 auto;
+}
+.wst-homepage-menu.ant-row .ant-col.ant-col-1{
+    width: 3.7%;
+}
+.wst-homepage-menu.ant-row .ant-col.ant-col-16{
+    width: 69%;
+}
+.wst-homepage-menu a:hover .verticalStyle{
+    color: #ccc;
 }

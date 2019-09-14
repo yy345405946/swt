@@ -7,10 +7,9 @@ class CarouselComponent extends Component{
     render(){
         const { list } = this.props;
         return (
-            <Carousel autoplay dots="false" dots={this.props.dots}>
+            <Carousel autoplay dots="false" dots={this.props.dots} style={{width: '80%', margin: '0 auto'}}>
             {
                 list.map(item => {
-                    console.log(item);
                     return (
                         <div>
                             <img src={item} width="100%" height={"500px"}/>

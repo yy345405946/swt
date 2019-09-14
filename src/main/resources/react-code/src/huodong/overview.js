@@ -5,11 +5,11 @@ import CarouselComponent from '../carousel';
 import './huodong.css';
 
 const list = [
-    "http://192.168.0.139:8443/images/huodong/1.png",
-    "http://192.168.0.139:8443/images/huodong/2.png",
-    "http://192.168.0.139:8443/images/huodong/3.png",
-    "http://192.168.0.139:8443/images/huodong/4.png",
-    "http://192.168.0.139:8443/images/huodong/5.png"
+    "/images/huodong/1.png",
+    "/images/huodong/2.png",
+    "/images/huodong/3.png",
+    "/images/huodong/4.png",
+    "/images/huodong/5.png"
 ];
 
 const options = [
@@ -18,7 +18,7 @@ const options = [
         date: '4月',
         title: '【堂間吃茶 | 八 預告】 岩茶和他的添香茶',
         category: '茶課',
-        image: 'http://192.168.0.139:8443/images/huodong/1.png',
+        image: '/images/huodong/1.png',
         text: '“岩岩有茶，非岩不茶”，岩茶因而得名。屬半發酵茶，青茶（烏龍茶）岩岩有茶，非岩不茶”，岩茶因而得名。屬半發酵茶，青茶（烏龍茶）'
     }
 ]

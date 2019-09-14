@@ -1,0 +1,19 @@
+.swt-admin .ant-layout-content{
+    padding: 30px 0px 0px 0px;
+}
+.swt-admin .ant-layout-header{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.swt-admin{
+    padding-top:20px;
+    padding-left:100px;
+    padding-right: 100px;
+    height: 100%;
+}
+.swt-admin .ant-tabs-nav .ant-tabs-tab{
+    padding: 0 16px 12px 16px;
+}
+#root{
+    height: 100%;
+}
