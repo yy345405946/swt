@@ -1,11 +1,12 @@
 package com.cn.yf.swt.domain;
 
 import lombok.Data;
-
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 //视频
 @Data
+@Document(indexName="swt", type="activity")
 public class Vedio {
 
     @Id

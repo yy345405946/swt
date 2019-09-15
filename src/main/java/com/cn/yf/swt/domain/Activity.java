@@ -4,20 +4,20 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Data
 @Document(indexName="swt", type="activity")
-public class Teacher {
+public class Activity implements Serializable {
 
     @Id
-    private int id;
-    private String order;
-    private String name;
-    private String image;
+    private String id;
     private String title;
     private String description;
-    private List<String> production;
+    private String type;
+    private String content;
+    private String activityDate;
+    private String updatedDate;
     private String isEnable;
 
 }

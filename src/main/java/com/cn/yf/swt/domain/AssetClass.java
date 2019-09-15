@@ -1,17 +1,19 @@
 package com.cn.yf.swt.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.Id;
 import java.util.List;
 
 //课程
 @Data
+@Document(indexName="swt", type="activity")
 public class AssetClass {
 
     @Id
-    private int id;
-    private int order;
+    private String id;
+    private String order;
     private String icon;
     private String description;
     private String assetClass;
