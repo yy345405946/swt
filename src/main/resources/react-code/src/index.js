@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Admin from './admin/overview';
-import Page from './page/page.js';
-import Homepage from './homepage/homePage';
+import Admin from './container/admin/overview';
+import Page from './container/swt/page/page.js';
+import Homepage from './container/swt/homepage/homePage';
 import * as serviceWorker from './serviceWorker';
 
 export default class App extends Component{

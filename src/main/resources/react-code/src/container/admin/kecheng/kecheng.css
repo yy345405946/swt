@@ -1,0 +1,33 @@
+.swt-assetclass-create, .swt-subAssetClass-create, .swt-details-create, .swt-problem-create{
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+.swt-assetclass-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-assetclass-create a:hover span{
+    color: #1890ff;
+}
+.swt-subAssetClass-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-subAssetClass-create a:hover span{
+    color: #1890ff;
+}
+.swt-details-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-details-create a:hover span{
+    color: #1890ff;
+}
+.swt-problem-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-problem-create a:hover span{
+    color: #1890ff;
+}

@@ -1,0 +1,13 @@
+.swt-teacher-create, .swt-teacher-production-create{
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 10px;
+}
+.swt-teacher-create span, .swt-teacher-production-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-teacher-create a:hover span, .swt-teacher-production-create a:hover span{
+    color: #1890ff;
+}

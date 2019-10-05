@@ -1,52 +1,73 @@
 import React, { Component } from 'react';
 import { Table, Divider, Popconfirm, Input, Button, Icon } from 'antd';
 import Highlighter from 'react-highlight-words';
-import reqwest from 'reqwest';
 import ImagePopover from '../imagePopover';
-import EditModal from './editModal';
-import './carousel.css';
+import EditModal from './teacherEditModal';
 
-export default class CarouselAdmin extends Component {
+export default class KechengAdmin extends Component {
     constructor(props) {
         super(props);
 
+        this.columns = [
+            {
+                title: '顺序',
+                dataIndex: 'order',
+                width: '2%',
+                defaultSortOrder: 'ascend',
+                sorter: (a, b) => a.order - b.order
+            },
+            {
+                title: '姓名',
+                dataIndex: 'name',
+                width: '4%',
+                ...this.getColumnSearchProps('name')
+            },
+            {
+                title: '称谓',
+                dataIndex: 'title',
+                width: '4%'
+            },
+            {
+                title: '头像',
+                dataIndex: 'image',
+                width: '2%',
+                render: (text, record) => <ImagePopover content={text} />
+            },
+            {
+                title: '描述',
+                dataIndex: 'description',
+                width: '27%'
+            }, {
+                title: "操作",
+                width: '4%',
+                render: (text, record) => {
+                    return (
+                        <span>
+                            <EditModal isEdit={true} record={record}/>
+                            <Divider type="vertical" />
+                            <Popconfirm title="确定要删除吗?" onConfirm={() => this.handleRemove(record.key)}>
+                                <a>删除</a>
+                            </Popconfirm>
+                        </span>
+                    )
+                }
+
+            }
+        ];
+
         this.state = {
             searchText: '',
-            loading: false,
             data: [
                 {
-                    id: '1',
-                    menu: '首页',
-                    image: 'aaaa'
+                    key: '1',
+                    order: '1',
+                    name: '吉腾飞',
+                    title: '书法老师',
+                    image: '',
+                    description: '山東菏澤人，啟蒙與鄉賢魯世傑先生，又多受益於同門得魚師兄，後進修于中央美術學院，學習逾十載，兼習諸體，並讀古書畫輪，為書體局關大，勢兼方圓，尢弓工北碑斬截法。'
                 }
             ]
         }
-    }
-
-    componentDidMount() {
-
-    }
-
-    fetchData = () => {
-        this.setState( { loading: true } );
-        reqwest({
-            url: '/activity/findByPage',
-            method: 'get',
-            data: {
-                results: 10
-            },
-            type: 'json',
-        }).then(data => {
-            const pagination = { ...this.state.pagination };
-            // Read total count from server
-            // pagination.total = data.totalCount;
-            pagination.total = 200;
-            this.setState({
-                loading: false,
-                data: data.results,
-                pagination,
-            });
-        });
     }
 
     getColumnSearchProps = dataIndex => ({
@@ -113,53 +134,20 @@ export default class CarouselAdmin extends Component {
         console.log('remove:', key);
     }
 
-    handleTableChange = (pagination, filters, sorter) => {
+    handleChange = (pagination, filters, sorter) => {
         console.log('params:', pagination, filters, sorter);
     }
 
     render() {
-        const columns = [
-            {
-                title: '页面',
-                dataIndex: 'menu',
-                width: '10%',
-                defaultSortOrder: 'ascend',
-                sorter: (a, b) => a.menu - b.menu,
-                ...this.getColumnSearchProps('menu')
-            },
-            {
-                title: '图片',
-                dataIndex: 'image',
-                width: '10%',
-                render: (text, record) => (<ImagePopover content={text} />)
-            },{
-                title: "操作",
-                width: '10%',
-                render: (text, record) => {
-                    return (
-                        <span>
-                            <EditModal isEdit={true} record={record} />
-                            <Divider type="vertical" />
-                            <Popconfirm title="确定要删除吗?" onConfirm={() => this.handleRemove(record.key)}>
-                                <a>删除</a>
-                            </Popconfirm>
-                        </span>
-                    )
-                }
-
-            }
-        ];
-
         return (
             <div>
-                <div className="swt-carousel-create">
+                <div className="swt-teacher-create">
                     <EditModal />
                 </div>
                 <Table
-                    columns={columns}
+                    columns={this.columns}
                     dataSource={this.state.data}
-                    loading={this.state.loading}
-                    onChange={this.handleTableChange}
+                    onChange={this.handleChange}
                 />
             </div>
         )

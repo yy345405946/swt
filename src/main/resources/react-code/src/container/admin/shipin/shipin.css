@@ -1,0 +1,13 @@
+.swt-shipin-create{
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 10px;
+}
+.swt-shipin-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-shipin-create a:hover span{
+    color: #1890ff;
+}

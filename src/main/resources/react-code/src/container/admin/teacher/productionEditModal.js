@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Icon, Upload } from 'antd';
+import { Button, Modal, Form, Input, Icon } from 'antd';
 
 const { TextArea } = Input;
 
@@ -29,11 +29,11 @@ class Admin extends Component{
                     isEdit? <a href="javascript:void(0)" onClick={this.handleShowModal}>编辑</a> 
                     : <a type="primary" onClick={this.handleShowModal}>
                         <Icon type="edit" style={{fontSize: 20}} />
-                        <span>新建教师</span>
+                        <span>新建作品</span>
                     </a>
                 }
                 <Modal
-                    title="教师"
+                    title="作品"
                     visible={this.state.visible}
                     onCancel={this.handleCloseModal}
                     footer={null}
@@ -55,14 +55,6 @@ class AdminContent extends Component{
             }
         })
     }
-
-    normFile = e => {
-        console.log('Upload event:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e && e.fileList;
-    };
 
     render(){
         const { isEdit, record } = this.props;
@@ -87,6 +79,15 @@ class AdminContent extends Component{
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                <Form.Item label="标签">
+                    {
+                        getFieldDecorator('assetClass', {
+                            initialValue: isEdit? record.assetClass : ''
+                        })(
+                            <Input />
+                        )
+                    }
+                </Form.Item>
                 <Form.Item label="顺序">
                     {
                         getFieldDecorator('order', {
@@ -96,42 +97,12 @@ class AdminContent extends Component{
                         )
                     }
                 </Form.Item>
-                <Form.Item label="姓名">
+                <Form.Item label="课程">
                     {
-                        getFieldDecorator('name', {
-                            initialValue: isEdit? record.name : ''
+                        getFieldDecorator('subAssetClass', {
+                            initialValue: isEdit? record.subAssetClass : ''
                         })(
                             <Input />
-                        )
-                    }
-                </Form.Item>
-                <Form.Item label="称谓">
-                    {
-                        getFieldDecorator('title', {
-                            initialValue: isEdit? record.title : ''
-                        })(
-                            <Input />
-                        )
-                    }
-                </Form.Item>
-                <Form.Item label="头像">
-                    {getFieldDecorator('image', {
-                        valuePropName: 'fileList',
-                        getValueFromEvent: this.normFile,
-                    })(
-                        <Upload name="icon" action="/upload.do" listType="picture">
-                            <Button>
-                                <Icon type="upload" /> Click to upload
-                            </Button>
-                        </Upload>,
-                    )}
-                </Form.Item>
-                <Form.Item label="描述">
-                    {
-                        getFieldDecorator('description', {
-                            initialValue: isEdit? record.description : ''
-                        })(
-                            <TextArea />
                         )
                     }
                 </Form.Item>
@@ -143,6 +114,6 @@ class AdminContent extends Component{
     }
 }
 
-const AdminForm = Form.create({ name: 'swt-teacher-admin-form' })(AdminContent);
+const AdminForm = Form.create({ name: 'swt-teacher-production-admin-form' })(AdminContent);
 
 export default Admin;

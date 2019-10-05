@@ -1,0 +1,45 @@
+.swt-teacher .content{
+    line-height: 28px;
+    margin-top: 50px;
+}
+.swt-teacher .content .content-title{
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    margin-bottom: 200px;
+}
+.swt-teacher .content .content-title span{
+    padding: 10px 0;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #ccc;
+}
+.swt-teacher .content .swt-teacher-image-margin{
+    text-align: center;
+}
+.swt-teacher .content-message .message-name h1{
+    font-weight: bold;
+    margin: 0px;
+}
+.swt-teacher .content-message .message-title{
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.swt-teacher .content .message-button{
+    margin-top: 20px;
+}
+.swt-teacher .content .message-button span{
+    color: #333;
+    padding: 5px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.swt-teacher .content .message-button span:hover{
+    color: #c7c5c5;
+    border: 1px solid #c7c5c5;
+}
+.swt-teacher .content .message-button.right{
+    float: right;
+}

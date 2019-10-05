@@ -1,0 +1,13 @@
+.swt-huodong-create{
+    margin-bottom: 10px;
+    line-height: 16px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.swt-huodong-create span{
+    color: #333;
+    padding-left: 3px;
+}
+.swt-huodong-create a:hover span{
+    color: #1890ff;
+}

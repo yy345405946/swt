@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, Form, Input, Icon, Upload } from 'antd';
+import { Button, Modal, Form, Input, Select, Icon } from 'antd';
 
 const { TextArea } = Input;
 
@@ -29,11 +29,11 @@ class Admin extends Component{
                     isEdit? <a href="javascript:void(0)" onClick={this.handleShowModal}>编辑</a> 
                     : <a type="primary" onClick={this.handleShowModal}>
                         <Icon type="edit" style={{fontSize: 20}} />
-                        <span>新建教师</span>
+                        <span>新建视频</span>
                     </a>
                 }
                 <Modal
-                    title="教师"
+                    title="视频"
                     visible={this.state.visible}
                     onCancel={this.handleCloseModal}
                     footer={null}
@@ -55,14 +55,6 @@ class AdminContent extends Component{
             }
         })
     }
-
-    normFile = e => {
-        console.log('Upload event:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e && e.fileList;
-    };
 
     render(){
         const { isEdit, record } = this.props;
@@ -87,51 +79,51 @@ class AdminContent extends Component{
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                <Form.Item label="顺序">
+                <Form.Item label="课程类别">
                     {
-                        getFieldDecorator('order', {
-                            initialValue: isEdit? record.order : ''
+                        getFieldDecorator('assetClass', {
+                            initialValue: isEdit? record.assetClass : ''
                         })(
                             <Input />
                         )
                     }
                 </Form.Item>
-                <Form.Item label="姓名">
+                <Form.Item label="授课老师">
                     {
-                        getFieldDecorator('name', {
-                            initialValue: isEdit? record.name : ''
+                        getFieldDecorator('teacher', {
+                            initialValue: isEdit? record.teacher : ''
                         })(
                             <Input />
                         )
                     }
                 </Form.Item>
-                <Form.Item label="称谓">
+                <Form.Item label="视频类别">
                     {
-                        getFieldDecorator('title', {
-                            initialValue: isEdit? record.title : ''
+                        getFieldDecorator('type', {
+                            initialValue: isEdit? record.type : ''
                         })(
                             <Input />
                         )
                     }
                 </Form.Item>
-                <Form.Item label="头像">
-                    {getFieldDecorator('image', {
-                        valuePropName: 'fileList',
-                        getValueFromEvent: this.normFile,
-                    })(
-                        <Upload name="icon" action="/upload.do" listType="picture">
-                            <Button>
-                                <Icon type="upload" /> Click to upload
-                            </Button>
-                        </Upload>,
-                    )}
-                </Form.Item>
-                <Form.Item label="描述">
+                <Form.Item label="精选">
                     {
-                        getFieldDecorator('description', {
-                            initialValue: isEdit? record.description : ''
+                        getFieldDecorator('mark', {
+                            initialValue: isEdit? record.mark : 'Y'
                         })(
-                            <TextArea />
+                            <Select>
+                                <Select.Option value="Y">是</Select.Option>
+                                <Select.Option value="N">否</Select.Option>
+                            </Select>
+                        )
+                    }
+                </Form.Item>
+                <Form.Item label="链接">
+                    {
+                        getFieldDecorator('url', {
+                            initialValue: isEdit? record.url : ''
+                        })(
+                            <Input />
                         )
                     }
                 </Form.Item>
@@ -143,6 +135,6 @@ class AdminContent extends Component{
     }
 }
 
-const AdminForm = Form.create({ name: 'swt-teacher-admin-form' })(AdminContent);
+const AdminForm = Form.create({ name: 'swt-shipin-admin-form' })(AdminContent);
 
 export default Admin;
